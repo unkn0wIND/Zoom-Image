@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.zoom {
+    width: max-content;
+    /* Position relative pour utiliser l'absolute pour imgZoom */
+    position: relative;
+}
+
+/* Taille de l'image */
+.zoom img {
+    width: 500px;
+    border-radius: 10px;
+}
+
+/* L'image qui va être zoomer se cache derrière l'original*/
+#imgZoom {
+    position: absolute;
+    left: 0;
+    top: 0;
+    --zoom-x: 50%;
+    --zoom-y: 50%;
+    /* Aggrandir de 1.5 */
+    transform: scale(1.5);
+    opacity: 0;
+    pointer-events: none;
+    clip-path: circle(100px at var(--zoom-x) var(--zoom-y));
+}
